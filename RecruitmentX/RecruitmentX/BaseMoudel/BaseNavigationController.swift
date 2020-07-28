@@ -22,14 +22,19 @@ class BaseNavigationController: UINavigationController ,UINavigationControllerDe
     }
     
     
-//    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
-//        if viewControllers.count == 1 {
-//            let tabbarVC : BaseTabbarViewController = tabBarController as! BaseTabbarViewController
-//            tabbarVC.animateHiddenTabbar(true)
-//
-//        }
-//        super.pushViewController(viewController, animated: animated)
-//    }
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        //        if viewControllers.count == 1 {
+        //            let tabbarVC : BaseTabbarViewController = tabBarController as! BaseTabbarViewController
+        //            tabbarVC.animateHiddenTabbar(true)
+        //
+        //        }
+        
+        //push时机设置barHidden
+        if viewControllers.count > 0 {
+            viewController.hidesBottomBarWhenPushed = true
+        }
+        super.pushViewController(viewController, animated: animated)
+    }
     
 }
 

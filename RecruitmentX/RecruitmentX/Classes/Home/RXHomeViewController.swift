@@ -89,7 +89,7 @@ extension RXHomeViewController {
         let editBtn = UIButton(frame: CGRect(x: kScreenWidth-50, y: kHomeTopBarHeight-43, width: 50, height: 43))
         editBtn.backgroundColor = .cyan
         homeTopBar.addSubview(editBtn)
-        editBtn.addTarget(self, action: #selector(editBtnAction), for: .touchUpInside)
+        
         
         //自定义中间筛选bar
         view.addSubview(homeMiddleBar)
@@ -111,6 +111,7 @@ extension RXHomeViewController {
         filterBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .medium)
         filterBtn.layer.cornerRadius = 4
         filterBtn.layer.masksToBounds = true
+        filterBtn.addTarget(self, action: #selector(filterBtnAction), for: .touchUpInside)
         homeMiddleBar.addSubview(filterBtn)
         filterBtn.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
@@ -135,7 +136,7 @@ extension RXHomeViewController {
 // MARK: -  事件响应
 extension RXHomeViewController {
     
-       @objc private func editBtnAction() {
+       @objc private func filterBtnAction() {
            navigationController?.pushViewController(RXJobFilterController(), animated: true)
        }
 

@@ -9,10 +9,19 @@
 import UIKit
 
 class BaseViewController: UIViewController ,UINavigationControllerDelegate{
-
+    
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .white
         
         
     }
@@ -31,3 +40,10 @@ class BaseViewController: UIViewController ,UINavigationControllerDelegate{
 
 }
 
+
+//提供基础视图自定义控制方法
+extension BaseViewController {
+    @objc func customPopAction() {
+        self.navigationController?.popViewController(animated: true)
+    }
+}

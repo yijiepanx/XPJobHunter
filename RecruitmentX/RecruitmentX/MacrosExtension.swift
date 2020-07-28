@@ -36,7 +36,7 @@ let kTabbarHeight = kStatusBarHeight > 20 ? 83.0 : 49.0
 /**
  ## 底部安全区域高度，刘海屏时为34
  */
-let kBottomSafeAreaHeight = kStatusBarHeight > 20 ? 34 : 0
+let kBottomSafeAreaHeight :CGFloat = kStatusBarHeight > 20 ? 34 : 0
 
 
 //用于部分适配，采用屏幕比例 以iPhone6尺寸（375*667）为标准
@@ -64,8 +64,8 @@ func kScaleValue(originValue : CGFloat) -> CGFloat {
 
 
 
-// MARK: -  扩展方法
-//颜色扩展
+// MARK: -  扩展方法（类，对象）
+// MARK: - 颜色扩展
 extension UIColor {
     class func RGB(r : CGFloat, g : CGFloat, b : CGFloat) -> UIColor {
         return UIColor(red: r / 255.0, green: g / 255.0, blue: b / 255.0, alpha: 1)
@@ -93,6 +93,69 @@ extension UIColor {
     }
 }
 
+enum XPButtonLayoutStyle {
+    case top //基于image位置的枚举
+    case left
+    case bottom
+    case right
+}
+// MARK: -  button扩展枚举调节图片文字位置
+extension UIButton {
+    /**
+     ## 使用该方法button必须设置title和image
+     ## 不宜使用snpkit或者masonry等约束布局方式，因为添加gap后，button的原尺寸无法修改
+     ## 如果使用约束布局，需要在约束执行后调用本方法
+     */
+    func xpLayoutButtonEdgeInsetStyle(style : XPButtonLayoutStyle , imageTitleGap : CGFloat) {
+        /**
+        *  知识点：titleEdgeInsets是title相对于其上下左右的inset，跟tableView的contentInset是类似的，
+        *  如果只有title，那它上下左右都是相对于button的，image也是一样；
+        *  如果同时有image和label，那这时候image的上左下是相对于button，右边是相对于label的；title的上右下是相对于button，左边是相对于image的。
+        */
+        let imageW : CGFloat? = self.imageView?.frame.size.width
+        let imageH : CGFloat? = self.imageView?.frame.size.height
+        
+        var labelW : CGFloat? = 0.0
+        var labelH : CGFloat? = 0.0
+        
+        if  ((UIDevice.current.systemVersion) as NSString).floatValue >= 8 {
+            labelW = self.titleLabel?.intrinsicContentSize.width
+            labelH = self.titleLabel?.intrinsicContentSize.height
+        } else {
+            labelW = self.titleLabel?.frame.width
+            labelH = self.titleLabel?.frame.height
+        }
+        
+        var imageEdInsets = UIEdgeInsets.zero
+        var labelEdInsets = UIEdgeInsets.zero
+        
+        switch style {
+        case .top:
+            imageEdInsets = UIEdgeInsets(top: -labelH! - imageTitleGap / 2, left: 0, bottom: 0, right: -labelW!)
+            labelEdInsets = UIEdgeInsets(top: 0, left: -imageW!, bottom: -imageH! - imageTitleGap / 2.0, right: 0)
+        case .left:
+            imageEdInsets = UIEdgeInsets(top: 0, left: -imageTitleGap / 2, bottom: 0, right: imageTitleGap / 2)
+            labelEdInsets = UIEdgeInsets(top: 0, left: imageTitleGap / 2, bottom: 0, right: -imageTitleGap / 2)
+        case .bottom:
+            imageEdInsets = UIEdgeInsets(top: 0, left: 0, bottom: -labelH! - imageTitleGap / 2.0, right: -labelW!)
+            labelEdInsets = UIEdgeInsets(top: -imageH! - imageTitleGap / 2.0, left: -imageW!, bottom: 0, right: 0)
+        case .right:
+            imageEdInsets = UIEdgeInsets(top: 0, left: labelW! + imageTitleGap / 2.0, bottom: 0, right: -labelW! - imageTitleGap / 2.0)
+            labelEdInsets = UIEdgeInsets(top: 0, left: -imageW! - imageTitleGap / 2.0, bottom: 0, right: imageH! + imageTitleGap / 2.0)
+        }
+        
+        self.titleEdgeInsets = labelEdInsets
+        self.imageEdgeInsets = imageEdInsets
+        
+        //无法重置button的约束宽度
+//        self.frame.size.width = labelW! + imageW! + imageTitleGap
+        
+    }
+    
+}
+
+
+// MARK: -  其他扩展
 
 //计算字符串尺寸
 //func CaluteStringSize(str : String, limitSize : CGSize, font : UIFont) -> CGSize {
@@ -100,3 +163,29 @@ extension UIColor {
 //    
 //    
 //}
+
+//根据颜色绘制出Image
+func ImageWithColor(color : UIColor, size : CGSize) -> UIImage? {
+    
+    let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+    UIGraphicsBeginImageContext(size)
+    let context = UIGraphicsGetCurrentContext()
+    context?.setFillColor(color.cgColor)
+    context?.fill(rect)
+    let image = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    return image
+
+}
+func ImageWithColor(color : UIColor) -> UIImage? {
+    
+    let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
+    UIGraphicsBeginImageContext(rect.size)
+    let context = UIGraphicsGetCurrentContext()
+    context?.setFillColor(color.cgColor)
+    context?.fill(rect)
+    let image = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    return image
+
+}

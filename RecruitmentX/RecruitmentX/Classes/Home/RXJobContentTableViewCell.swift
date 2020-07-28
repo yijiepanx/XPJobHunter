@@ -11,49 +11,50 @@ import UIKit
 class RXJobContentTableViewCell: UITableViewCell {
     
     //懒加载控件
+    private lazy var containerView: UIView = UIView()
     
-    lazy var jobNameLab: UILabel = {
+    private lazy var jobNameLab: UILabel = {
         let lab = UILabel()
         lab.text = "产品经理"
         lab.textColor = UIColor.black.withAlphaComponent(0.85)
         lab.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         return lab
     }()
-    lazy var salaryLab: UILabel = {
+    private lazy var salaryLab: UILabel = {
         let lab = UILabel()
         lab.text = "15-20K·13薪"
         lab.textColor = UIColor.black.withAlphaComponent(0.65)
         lab.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         return lab
     }()
-    lazy var companyLab: UILabel = {
+    private lazy var companyLab: UILabel = {
         let lab = UILabel()
         lab.text = "极兔速递"
         lab.textColor = UIColor.black.withAlphaComponent(0.65)
         lab.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         return lab
     }()
-    lazy var companySizeLab: UILabel = {
+    private lazy var companySizeLab: UILabel = {
         let lab = UILabel()
         lab.text = "10000人以上"
         lab.textColor = UIColor.black.withAlphaComponent(0.65)
         lab.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         return lab
     }()
-    lazy var companyDesLab: UILabel = {
+    private lazy var companyDesLab: UILabel = {
         let lab = UILabel()
         lab.text = "未融资"
         lab.textColor = UIColor.black.withAlphaComponent(0.65)
         lab.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         return lab
     }()
-    lazy var filterContent: UIView = {
+    private lazy var filterContent: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.06)
         return view
     }()
     
-    lazy var jobDesLab: UILabel = {
+    private lazy var jobDesLab: UILabel = {
         let lab = UILabel()
         lab.textColor = UIColor.black.withAlphaComponent(0.45)
         lab.numberOfLines = 0
@@ -69,7 +70,7 @@ class RXJobContentTableViewCell: UITableViewCell {
         return lab
     }()
     
-    lazy var locationLab: UILabel = {
+    private lazy var locationLab: UILabel = {
         let lab = UILabel()
         lab.text = "上海"
         lab.textColor = UIColor.black.withAlphaComponent(0.65)
@@ -94,20 +95,22 @@ class RXJobContentTableViewCell: UITableViewCell {
 
 extension RXJobContentTableViewCell {
     
+    
     private func setupUI() {
-        contentView.snp.remakeConstraints { (make) in
+        contentView.addSubview(containerView)
+        containerView.backgroundColor = .white
+        containerView.snp.remakeConstraints { (make) in
             make.edges.equalTo(UIEdgeInsets(top: 0, left: 0, bottom: 6, right: 0))
         }
-        contentView.backgroundColor = .white
         
-        contentView.addSubview(jobNameLab)
-        contentView.addSubview(salaryLab)
-        contentView.addSubview(companyLab)
-        contentView.addSubview(companySizeLab)
-        contentView.addSubview(companyDesLab)
-        contentView.addSubview(filterContent)
-        contentView.addSubview(jobDesLab)
-        contentView.addSubview(locationLab)
+        containerView.addSubview(jobNameLab)
+        containerView.addSubview(salaryLab)
+        containerView.addSubview(companyLab)
+        containerView.addSubview(companySizeLab)
+        containerView.addSubview(companyDesLab)
+        containerView.addSubview(filterContent)
+        containerView.addSubview(jobDesLab)
+        containerView.addSubview(locationLab)
         
         layoutUI()
     }
@@ -156,7 +159,8 @@ extension RXJobContentTableViewCell {
         jobDesLab.snp.makeConstraints { (make) in
             make.top.equalTo(filterContent.snp.bottom).offset(10)
             make.left.equalTo(jobNameLab)
-            make.right.equalTo(locationLab.snp.left).offset(-49)
+//            make.right.equalTo(locationLab.snp.left).offset(-49)
+            make.right.equalTo(containerView).offset(-69)
         }
         
         

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87660D2024C6D47F007EA053 /* RXJobVCController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87660D1F24C6D47F007EA053 /* RXJobVCController.swift */; };
 		87CD5DEB24BD9C9B0099F740 /* MacrosExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CD5DEA24BD9C9B0099F740 /* MacrosExtension.swift */; };
 		87CD5DFB24BE9B520099F740 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CD5DF124BE9B520099F740 /* BaseViewController.swift */; };
 		87CD5DFC24BE9B520099F740 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CD5DF224BE9B520099F740 /* BaseNavigationController.swift */; };
@@ -17,8 +18,10 @@
 		87CD5E0224BEA1DC0099F740 /* RXPageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CD5E0124BEA1DC0099F740 /* RXPageTitleView.swift */; };
 		87CD5E0424BECA8A0099F740 /* RXPageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CD5E0324BECA8A0099F740 /* RXPageContentView.swift */; };
 		87CD5E0624BEEC400099F740 /* RXTitleSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CD5E0524BEEC400099F740 /* RXTitleSegmentView.swift */; };
+		87DF71AE24CEA50900651710 /* RXJobInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DF71AD24CEA50900651710 /* RXJobInfoTableViewCell.swift */; };
 		87E701FA24BEFEA6009AF99E /* RXJobContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E701F924BEFEA6009AF99E /* RXJobContentController.swift */; };
 		87E701FC24BF0743009AF99E /* RXJobContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E701FB24BF0743009AF99E /* RXJobContentTableViewCell.swift */; };
+		87E701FE24C038DC009AF99E /* RXJobDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E701FD24C038DC009AF99E /* RXJobDetailViewController.swift */; };
 		87E8379F24ADE6CD00067FD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E8379E24ADE6CD00067FD2 /* AppDelegate.swift */; };
 		87E837A624ADE6CD00067FD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87E837A424ADE6CD00067FD2 /* Main.storyboard */; };
 		87E837A824ADE6D200067FD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87E837A724ADE6D200067FD2 /* Assets.xcassets */; };
@@ -28,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		85FAAA9946348A49DEB03E8B /* Pods_RecruitmentX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecruitmentX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87660D1F24C6D47F007EA053 /* RXJobVCController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RXJobVCController.swift; sourceTree = "<group>"; };
 		87CD5DEA24BD9C9B0099F740 /* MacrosExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacrosExtension.swift; sourceTree = "<group>"; };
 		87CD5DF124BE9B520099F740 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		87CD5DF224BE9B520099F740 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
@@ -38,8 +42,10 @@
 		87CD5E0124BEA1DC0099F740 /* RXPageTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RXPageTitleView.swift; sourceTree = "<group>"; };
 		87CD5E0324BECA8A0099F740 /* RXPageContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RXPageContentView.swift; sourceTree = "<group>"; };
 		87CD5E0524BEEC400099F740 /* RXTitleSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RXTitleSegmentView.swift; sourceTree = "<group>"; };
+		87DF71AD24CEA50900651710 /* RXJobInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RXJobInfoTableViewCell.swift; sourceTree = "<group>"; };
 		87E701F924BEFEA6009AF99E /* RXJobContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RXJobContentController.swift; sourceTree = "<group>"; };
 		87E701FB24BF0743009AF99E /* RXJobContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RXJobContentTableViewCell.swift; sourceTree = "<group>"; };
+		87E701FD24C038DC009AF99E /* RXJobDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RXJobDetailViewController.swift; sourceTree = "<group>"; };
 		87E8379B24ADE6CD00067FD2 /* RecruitmentX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecruitmentX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87E8379E24ADE6CD00067FD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87E837A524ADE6CD00067FD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -115,6 +121,7 @@
 				87E701F924BEFEA6009AF99E /* RXJobContentController.swift */,
 				87E701FB24BF0743009AF99E /* RXJobContentTableViewCell.swift */,
 				87CD5DF824BE9B520099F740 /* RXJobFilterController.swift */,
+				87E701FD24C038DC009AF99E /* RXJobDetailViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -123,6 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				87CD5DFA24BE9B520099F740 /* RXIndividualViewController.swift */,
+				87660D1F24C6D47F007EA053 /* RXJobVCController.swift */,
+				87DF71AD24CEA50900651710 /* RXJobInfoTableViewCell.swift */,
 			);
 			path = Individual;
 			sourceTree = "<group>";
@@ -287,8 +296,11 @@
 				87CD5E0624BEEC400099F740 /* RXTitleSegmentView.swift in Sources */,
 				87CD5DEB24BD9C9B0099F740 /* MacrosExtension.swift in Sources */,
 				87CD5E0424BECA8A0099F740 /* RXPageContentView.swift in Sources */,
+				87DF71AE24CEA50900651710 /* RXJobInfoTableViewCell.swift in Sources */,
 				87CD5DFF24BE9B520099F740 /* RXJobFilterController.swift in Sources */,
 				87CD5DFD24BE9B520099F740 /* BaseTabbarViewController.swift in Sources */,
+				87E701FE24C038DC009AF99E /* RXJobDetailViewController.swift in Sources */,
+				87660D2024C6D47F007EA053 /* RXJobVCController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
